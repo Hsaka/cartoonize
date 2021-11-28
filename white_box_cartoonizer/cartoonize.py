@@ -29,11 +29,11 @@ class WB_Cartoonize:
     
     def resize_crop(self, image):
         h, w, c = np.shape(image)
-        if min(h, w) > 720:
+        if min(h, w) > 1080:
             if h > w:
-                h, w = int(720*h/w), 720
+                h, w = int(1080*h/w), 1080
             else:
-                h, w = 720, int(720*w/h)
+                h, w = 1080, int(1080*w/h)
         image = cv2.resize(image, (w, h),
                             interpolation=cv2.INTER_AREA)
         h, w = (h//8)*8, (w//8)*8
